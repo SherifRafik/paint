@@ -3,11 +3,16 @@ package IOFile;
  * @author Harraz21 (mohamed harraz21@gmail.com)
  */
 
-import __Model.Shape;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import __Model.Shape;
 
 public class XMLsaverAndLoader  implements FileExtention {
     private ArrayList<Shape> data;

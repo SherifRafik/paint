@@ -1,11 +1,10 @@
 package FileChooserView;
 
+import java.io.File;
+
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.Window;
-
-import java.io.File;
 
 public class FileChooserView {
     private FileChooser fileChooser;

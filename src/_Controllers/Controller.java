@@ -1,38 +1,6 @@
 	package _Controllers;
 
-import FileChooserView.FileChooserView;
-import IOFile.IOFile;
-import Utility.ContainerResizer;
-import Utility.UTILITY;
-import __Memento.CareTaker;
-import __Memento.Memento;
-import __Memento.Originator;
-import __Model.*;
-import __Model.Shape;
-import command.*;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Cursor;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.MenuItem;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyCodeCombination;
-import javafx.scene.input.KeyCombination;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import org.json.simple.parser.ParseException;
-
-
-import java.awt.*;
+import java.awt.Point;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -42,6 +10,49 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import javax.swing.JFileChooser;
+
+import org.json.simple.parser.ParseException;
+
+import FileChooserView.FileChooserView;
+import IOFile.IOFile;
+import Utility.ContainerResizer;
+import Utility.UTILITY;
+import __Memento.CareTaker;
+import __Memento.Memento;
+import __Memento.Originator;
+import __Model.AbstractShape;
+import __Model.Plugin;
+import __Model.SHAPES;
+import __Model.Shape;
+import __Model.ShapeFactory;
+import command.ChangeShapeProperties;
+import command.Command;
+import command.CopyShape;
+import command.CreateShape;
+import command.RemoveShape;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ColorPicker;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.Slider;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 
 public class Controller implements Initializable,DrawingEngine  {
@@ -807,8 +818,7 @@ public class Controller implements Initializable,DrawingEngine  {
 		return shapes;
 	}
 
-    @SuppressWarnings("unchecked")
-	public void addCommand(Command c) {
+    public void addCommand(Command c) {
         originator.setState(c);
         careTaker.addMemento(originator.storeInMemento());
         _undo.setDisable(false);
@@ -830,7 +840,6 @@ public class Controller implements Initializable,DrawingEngine  {
 
     }
 
-    @SuppressWarnings("unchecked")
 	@Override
     public void redo() {
 	    Memento memento=careTaker.redoByMemento();

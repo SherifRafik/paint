@@ -1,10 +1,8 @@
 package _Controllers;
 
-import FileChooserView.FileChooserView;
-
-
-
 import java.io.File;
+
+import FileChooserView.FileChooserView;
 
 public class ChooserController {
     public String getOpenPath(FileChooserView fileChooserView)

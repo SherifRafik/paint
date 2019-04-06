@@ -1,9 +1,6 @@
 package __Memento;
 
-import __Model.Shape;
 import command.Command;
-
-import java.util.ArrayList;
 
 public class  FixedStack  {
    private Command[] data;
@@ -57,7 +54,6 @@ public class  FixedStack  {
     }
     public void printStack()
     {
-        int Top=top-1;
         FixedStack fixedStack=new FixedStack(maxSize);
         while (!isEmpty())
         {

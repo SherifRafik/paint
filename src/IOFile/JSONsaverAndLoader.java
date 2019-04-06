@@ -1,17 +1,24 @@
 package IOFile;
-/**
- * @author Harraz21 (mohamed harraz21@gmail.com)
- */
-import __Model.*;
-import __Model.Shape;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.ParseException;
-import java.awt.*;
-import java.io.*;
+import java.awt.Color;
+import java.awt.Point;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Map;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
+
+/**
+ * @author Harraz21 (mohamed harraz21@gmail.com)
+ */
+import __Model.SHAPES;
+import __Model.Shape;
+import __Model.ShapeFactory;
 
 public class JSONsaverAndLoader implements FileExtention {
     private ArrayList<Shape> data;
