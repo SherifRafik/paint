@@ -1,3 +1,3 @@
 # Paint
 
-Desktop application created with JavaFX.
+Desktop application created with JavaFX
